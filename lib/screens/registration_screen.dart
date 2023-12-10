@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:weather_weather/screens/registration_screen.dart';
+import 'package:weather_weather/screens/login_screen.dart';
 import 'package:weather_weather/models/EmailField.dart';
 import 'package:weather_weather/models/PasswordField.dart';
+import 'package:weather_weather/models/UsernameField.dart';
 import 'package:weather_weather/models/LogRegButton.dart';
 import 'package:weather_weather/models/GoogleLogRegButton.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegistrationScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class LoginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Welcome to WeatherWeather!',
+              'Create a New Account',
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
@@ -28,59 +30,39 @@ class LoginScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text(
-              "Let's get started by logging you in our app.",
+              "Sign up to WeatherWeather to get started.",
               style: TextStyle(
                 fontSize: 16.0,
                 color: Colors.grey,
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 50.0),
+            SizedBox(height: 30.0),
+            UsernameField(controller: usernameController),
+            SizedBox(height: 16.0),
             EmailField(controller: emailController),
             SizedBox(height: 16.0),
             PasswordField(controller: passwordController),
             SizedBox(height: 16.0),
-            Row(
-              children: [
-                Checkbox(
-                  value: false,
-                  onChanged: (value) {
-                    // Handle checkbox change
-                  },
-                ),
-                Text('Remember password', style: TextStyle(color: Colors.grey)),
-              ],
-            ),
-            SizedBox(height: 16.0),
             LogRegButton(
-              text: 'Login',
+              text: 'Register',
               onPressed: () {
-                // Handle login button press
+                // Handle registration button press
               },
             ),
+            SizedBox(height: 16.0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Text("Already have an account? "),
                 TextButton(
                   onPressed: () {
-                    // Handle forgot password press
+                    Navigator.pop(context); // Navigate back to the login screen
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.blue,
                   ),
-                  child: Text('Forgot password ?'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegistrationScreen()),
-                    );
-                  },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                  ),
-                  child: Text('Create new Account'),
+                  child: Text('Login now.'),
                 ),
               ],
             ),
@@ -106,12 +88,12 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: 16.0),
             GoogleLogRegButton(
               onPressed: () {
-                // Handle Google sign-in button press
+                // Handle Google sign-up button press
               },
             ),
             SizedBox(height: 16.0),
             Text(
-              'By signing in you are agreeing our Terms and Privacy Policy.',
+              'By signing up, you are agreeing our Terms and Privacy Policy.',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey),
             ),

@@ -22,12 +22,12 @@ class GoogleLogRegButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'lib/icons/google_icon.png',
+            'lib/icons/google_icon.png', // Make sure to provide the correct path
             height: 15.0,
             width: 15.0,
           ),
           SizedBox(width: 8.0),
-          Text('Sign In with Google'),
+          Text('Sign Up with Google'),
         ],
       ),
     );
