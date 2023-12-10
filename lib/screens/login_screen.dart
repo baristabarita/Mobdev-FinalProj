@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_weather/screens/registration_screen.dart';
+import 'package:weather_weather/screens/dashboard_screen.dart';
 import 'package:weather_weather/models/EmailField.dart';
 import 'package:weather_weather/models/PasswordField.dart';
 import 'package:weather_weather/models/LogRegButton.dart';
@@ -56,6 +57,17 @@ class LoginScreen extends StatelessWidget {
               text: 'Login',
               onPressed: () {
                 // Handle login button press
+
+                // For now, let's simulate a successful login
+                bool loginSuccessful = true;
+
+                if (loginSuccessful) {
+                  // Navigate to the DashboardScreen when login is successful
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => DashboardScreen()),
+                  );
+                }
               },
             ),
             Row(
@@ -74,7 +86,8 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RegistrationScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => RegistrationScreen()),
                     );
                   },
                   style: TextButton.styleFrom(
