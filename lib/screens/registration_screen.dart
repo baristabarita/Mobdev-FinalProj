@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_weather/screens/login_screen.dart';
 import 'package:weather_weather/models/EmailField.dart';
 import 'package:weather_weather/models/PasswordField.dart';
 import 'package:weather_weather/models/UsernameField.dart';
