@@ -1,22 +1,29 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_weather/screens/login_screen.dart';
-import 'package:weather_weather/screens/registration_screen.dart';
+import 'package:weather_weather/firebase_options.dart';
+import 'package:weather_weather/routes.dart';
 import 'package:weather_weather/screens/dashboard_screen.dart';
+import 'package:weather_weather/screens/login_screen.dart';
+import 'package:weather_weather/services/StorageServices.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  StorageService storageService = StorageService();
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/login',
-      routes: { 
-        '/login': (context) => LoginScreen(),
-        '/register': (context) => RegistrationScreen(),
-        '/dashboard': (context) => DashboardScreen(), 
-        },
-    );
+  var item = await storageService.readData("uid");
+  
+  if (item != null) {
+    runApp(MaterialApp(
+      initialRoute: DashboardScreen.routeName,
+      routes: routes,
+    ));
+  }else{
+    runApp(MaterialApp(
+      initialRoute: LoginScreen.routeName,
+      routes: routes,
+    ));
   }
 }

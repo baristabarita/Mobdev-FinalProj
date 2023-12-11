@@ -1,15 +1,22 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_weather/models/EmailField.dart';
 import 'package:weather_weather/models/PasswordField.dart';
-import 'package:weather_weather/models/UsernameField.dart';
 import 'package:weather_weather/models/LogRegButton.dart';
 import 'package:weather_weather/models/GoogleLogRegButton.dart';
+import 'package:weather_weather/screens/login_screen.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class RegistrationScreen extends StatefulWidget {
+  static String routeName = "/register";
+  const RegistrationScreen({Key? key}) : super(key: key);
+
+  @override
+  State<RegistrationScreen> createState() => _RegisterState();
+}
+class _RegisterState extends State<RegistrationScreen>{
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController usernameController = TextEditingController();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +44,6 @@ class RegistrationScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30.0),
-            UsernameField(controller: usernameController),
-            SizedBox(height: 16.0),
             EmailField(controller: emailController),
             SizedBox(height: 16.0),
             PasswordField(controller: passwordController),
@@ -46,7 +51,11 @@ class RegistrationScreen extends StatelessWidget {
             LogRegButton(
               text: 'Register',
               onPressed: () {
-                // Handle registration button press
+                //handler function to register new user
+                registerUser(
+                    context,
+                    emailController.value.text, 
+                    passwordController.value.text);
               },
             ),
             SizedBox(height: 16.0),
@@ -54,15 +63,16 @@ class RegistrationScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Already have an account? "),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context); // Navigate back to the login screen
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(
+                      context, LoginScreen.routeName);
                   },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                  ),
-                  child: Text('Login now.'),
-                ),
+                  child: Text(
+                    "Login here",
+                    style: TextStyle(color: Colors.blueAccent),
+                  )
+                )
               ],
             ),
             SizedBox(height: 16.0),
@@ -100,5 +110,20 @@ class RegistrationScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  registerUser(context, String email, String password) async {
+    try {
+      UserCredential credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+
+      print("Successful registration! you can login now");
+
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+    } catch (e) {
+      print(e);
+    }
   }
 }

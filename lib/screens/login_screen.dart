@@ -1,12 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_weather/models/StorageItem.dart';
 import 'package:weather_weather/screens/registration_screen.dart';
 import 'package:weather_weather/screens/dashboard_screen.dart';
 import 'package:weather_weather/models/EmailField.dart';
 import 'package:weather_weather/models/PasswordField.dart';
 import 'package:weather_weather/models/LogRegButton.dart';
 import 'package:weather_weather/models/GoogleLogRegButton.dart';
+import 'package:weather_weather/services/StorageServices.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  static String routeName = "/login";
+  const LoginScreen({Key? key}) : super(key: key);
+  
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+class _LoginScreenState extends State<LoginScreen>{
+  StorageService storageService = StorageService();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -57,17 +68,10 @@ class LoginScreen extends StatelessWidget {
               text: 'Login',
               onPressed: () {
                 // Handle login button press
-
-                // For now, let's simulate a successful login
-                bool loginSuccessful = true;
-
-                if (loginSuccessful) {
-                  // Navigate to the DashboardScreen when login is successful
-                  Navigator.pushReplacement(
+                loginUser(
                     context,
-                    MaterialPageRoute(builder: (context) => DashboardScreen()),
-                  );
-                }
+                    emailController.value.text,
+                    passwordController.value.text);
               },
             ),
             Row(
@@ -132,5 +136,23 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  loginUser(context, String email, String password) async {
+    try {
+      UserCredential credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+
+      var item = StorageItem("uid", credential.user?.uid ?? "");
+
+      await storageService.saveData(item);
+
+      Navigator.pushReplacementNamed(context, DashboardScreen.routeName);
+      print("Login Successful!");
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+    } catch (e) {
+      print(e);
+    }
   }
 }
