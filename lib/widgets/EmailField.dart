@@ -7,24 +7,30 @@ class EmailField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: 'Email Address',
-        labelStyle: TextStyle(color: Colors.grey),
-        suffixIcon: Icon(
-          Icons.email,
-          color: Colors.grey[400],
+    return Container(
+      decoration: BoxDecoration(
+        color: Color(0xFF288CC5), // Dark blue background color
+        borderRadius: BorderRadius.circular(10.0), // Match the circular radius
+      ),
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: 'Email Address',
+          labelStyle: TextStyle(color: Colors.white),
+          suffixIcon: Icon(
+            Icons.email,
+            color: Colors.white,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(0xFF104084)),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(0xFF104084)),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          hintStyle: TextStyle(color: Colors.grey),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        hintStyle: TextStyle(color: Colors.grey),
       ),
     );
   }

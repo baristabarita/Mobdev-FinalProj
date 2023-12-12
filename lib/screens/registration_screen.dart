@@ -17,19 +17,35 @@ class _RegisterState extends State<RegistrationScreen>{
   final TextEditingController passwordController = TextEditingController();
   
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+Widget build(BuildContext context) {
+  return Scaffold(
+    resizeToAvoidBottomInset: false, // Prevent bottom overflow on keyboard
+    body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF47BFDF), Color(0xFF4A91FF)],
+          begin: Alignment(-0.21, -0.98),
+          end: Alignment(0.21, 0.98),
+        ),
+      ),
+      child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Image.asset(
+                'lib/icons/wind.png', // Make sure the path is correct
+                height: 60.0, // Adjust the height as needed
+                width: 60.0, // Adjust the width as needed
+              ),
+              SizedBox(height: 10.0),
             Text(
               'Create a New Account',
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
+                color: Colors.white, // Text color changed to white
               ),
               textAlign: TextAlign.center,
             ),
@@ -38,7 +54,7 @@ class _RegisterState extends State<RegistrationScreen>{
               "Sign up to WeatherWeather to get started.",
               style: TextStyle(
                 fontSize: 16.0,
-                color: Colors.grey,
+                color: Colors.white, // Text color changed to white
               ),
               textAlign: TextAlign.center,
             ),
@@ -50,11 +66,12 @@ class _RegisterState extends State<RegistrationScreen>{
             LogRegButton(
               text: 'Register',
               onPressed: () {
-                //handler function to register new user
+                // Handler function to register new user
                 registerUser(
-                    context,
-                    emailController.value.text, 
-                    passwordController.value.text);
+                  context,
+                  emailController.value.text,
+                  passwordController.value.text,
+                );
               },
             ),
             SizedBox(height: 16.0),
@@ -65,27 +82,29 @@ class _RegisterState extends State<RegistrationScreen>{
                 GestureDetector(
                   onTap: () {
                     Navigator.pushReplacementNamed(
-                      context, LoginScreen.routeName);
+                      context,
+                      LoginScreen.routeName,
+                    );
                   },
                   child: Text(
                     "Login here",
-                    style: TextStyle(color: Colors.blueAccent),
-                  )
-                )
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ],
             ),
-            
             SizedBox(height: 16.0),
             Text(
               'By signing up, you are agreeing our Terms and Privacy Policy.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.white), // Text color changed to white
             ),
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   registerUser(context, String email, String password) async {
     try {

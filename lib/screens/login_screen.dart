@@ -26,114 +26,132 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Welcome to WeatherWeather!',
-              style: TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
+      resizeToAvoidBottomInset: false, // Add this line to avoid bottom overflow
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF47BFDF), Color(0xFF4A91FF)],
+            begin: Alignment(-0.21, -0.98),
+            end: Alignment(0.21, 0.98),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Image.asset(
+                'lib/icons/wind.png', // Make sure the path is correct
+                height: 60.0, // Adjust the height as needed
+                width: 60.0, // Adjust the width as needed
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              "Let's get started by logging you in our app.",
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.grey,
+              SizedBox(height: 10.0),
+              Text(
+                'Welcome to WeatherWeather!',
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 50.0),
-            EmailField(controller: emailController),
-            SizedBox(height: 16.0),
-            PasswordField(controller: passwordController),
-            SizedBox(height: 16.0),
-            Row(
-              children: [
-                Checkbox(
-                  value: false,
-                  onChanged: (value) {
-                    // Handle checkbox change
-                  },
+              SizedBox(height: 10.0),
+              Text(
+                "Let's get started by logging you in our app.",
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.white,
                 ),
-                Text('Remember password', style: TextStyle(color: Colors.grey)),
-              ],
-            ),
-            SizedBox(height: 16.0),
-            LogRegButton(
-              text: 'Login',
-              onPressed: () {
-                // Handle login button press
-                loginUser(context, emailController.value.text,
-                    passwordController.value.text);
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    // Handle forgot password press
-                  },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 50.0),
+              EmailField(controller: emailController),
+              SizedBox(height: 16.0),
+              PasswordField(controller: passwordController),
+              SizedBox(height: 16.0),
+              Row(
+                children: [
+                  Checkbox(
+                    value: false,
+                    onChanged: (value) {
+                      // Handle checkbox change
+                    },
                   ),
-                  child: Text('Forgot password ?'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RegistrationScreen()),
-                    );
-                  },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
+                  Text('Remember password',
+                      style: TextStyle(color: Colors.white)),
+                ],
+              ),
+              SizedBox(height: 16.0),
+              LogRegButton(
+                text: 'Login',
+                onPressed: () {
+                  // Handle login button press
+                  loginUser(context, emailController.value.text,
+                      passwordController.value.text);
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      // Handle forgot password press
+                    },
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text('Forgot password ?'),
                   ),
-                  child: Text('Create new Account'),
-                ),
-              ],
-            ),
-            SizedBox(height: 16.0),
-            Row(
-              children: [
-                Expanded(
-                  child: Divider(color: Colors.grey),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text(
-                    'Or',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegistrationScreen()),
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text('Create new Account'),
                   ),
-                ),
-                Expanded(
-                  child: Divider(color: Colors.grey),
-                ),
-              ],
-            ),
-            SizedBox(height: 16.0),
-            GoogleLogRegButton(
-              onPressed: () {
-                // Handle Google sign-in button press
-                loginWithGoogle();
-              },
-            ),
-            SizedBox(height: 16.0),
-            Text(
-              'By signing in you are agreeing our Terms and Privacy Policy.',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey),
-            ),
-          ],
+                ],
+              ),
+              SizedBox(height: 16.0),
+              Row(
+                children: [
+                  Expanded(
+                    child: Divider(color: Colors.white),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text(
+                      'Or',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(color: Colors.white),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16.0),
+              GoogleLogRegButton(
+                onPressed: () {
+                  // Handle Google sign-in button press
+                  loginWithGoogle();
+                },
+              ),
+              SizedBox(height: 16.0),
+              Text(
+                'By signing in you are agreeing our Terms and Privacy Policy.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -185,60 +203,64 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
 // Function to link Google provider if a Google user with the same email exists
-_linkGoogleProvider(UserCredential emailPasswordCredential) async {
-  try {
-    if (emailPasswordCredential.user != null) {
-      // Check if a Google user with the same email exists
-      List<String> signInMethods = await FirebaseAuth.instance
-          .fetchSignInMethodsForEmail(emailPasswordCredential.user!.email ?? '');
+  _linkGoogleProvider(UserCredential emailPasswordCredential) async {
+    try {
+      if (emailPasswordCredential.user != null) {
+        // Check if a Google user with the same email exists
+        List<String> signInMethods = await FirebaseAuth.instance
+            .fetchSignInMethodsForEmail(
+                emailPasswordCredential.user!.email ?? '');
 
-      // Check if the list contains 'google.com', which indicates a Google sign-in
-      if (signInMethods.contains('google.com')) {
-        // Get the Google sign-in credentials
-        final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-        final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+        // Check if the list contains 'google.com', which indicates a Google sign-in
+        if (signInMethods.contains('google.com')) {
+          // Get the Google sign-in credentials
+          final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+          final GoogleSignInAuthentication? googleAuth =
+              await googleUser?.authentication;
 
-        // Create a GoogleAuthCredential with the id token and access token
-        final googleCredential = GoogleAuthProvider.credential(
-          idToken: googleAuth?.idToken,
-          accessToken: googleAuth?.accessToken,
-        );
+          // Create a GoogleAuthCredential with the id token and access token
+          final googleCredential = GoogleAuthProvider.credential(
+            idToken: googleAuth?.idToken,
+            accessToken: googleAuth?.accessToken,
+          );
 
-        // Link Google provider
-        await emailPasswordCredential.user!.linkWithCredential(googleCredential);
-        print("Linked Google Provider!");
+          // Link Google provider
+          await emailPasswordCredential.user!
+              .linkWithCredential(googleCredential);
+          print("Linked Google Provider!");
+        }
       }
+    } catch (e) {
+      print("Error linking Google provider: $e");
     }
-  } catch (e) {
-    print("Error linking Google provider: $e");
   }
-}
 
 // Function to link email/password provider if an email/password user with the same email exists
-_linkEmailPasswordProvider(UserCredential googleCredential) async {
-  try {
-    if (googleCredential.user != null) {
-      // Check if an email/password user with the same email exists
-      List<String> signInMethods = await FirebaseAuth.instance
-          .fetchSignInMethodsForEmail(googleCredential.user!.email ?? '');
+  _linkEmailPasswordProvider(UserCredential googleCredential) async {
+    try {
+      if (googleCredential.user != null) {
+        // Check if an email/password user with the same email exists
+        List<String> signInMethods = await FirebaseAuth.instance
+            .fetchSignInMethodsForEmail(googleCredential.user!.email ?? '');
 
-      // Check if the list contains 'password', which indicates an email/password sign-in
-      if (signInMethods.contains('password')) {
-        String password = '...'; 
+        // Check if the list contains 'password', which indicates an email/password sign-in
+        if (signInMethods.contains('password')) {
+          String password = '...';
 
-        // Create an EmailAuthCredential with the email and password
-        final emailPasswordCredential = EmailAuthProvider.credential(
-          email: googleCredential.user!.email ?? '',
-          password: password,
-        );
+          // Create an EmailAuthCredential with the email and password
+          final emailPasswordCredential = EmailAuthProvider.credential(
+            email: googleCredential.user!.email ?? '',
+            password: password,
+          );
 
-        // Link email/password provider
-        await googleCredential.user!.linkWithCredential(emailPasswordCredential);
-        print("Linked Email/Password Provider!");
+          // Link email/password provider
+          await googleCredential.user!
+              .linkWithCredential(emailPasswordCredential);
+          print("Linked Email/Password Provider!");
+        }
       }
+    } catch (e) {
+      print("Error linking Email/Password provider: $e");
     }
-  } catch (e) {
-    print("Error linking Email/Password provider: $e");
   }
-}
 }
