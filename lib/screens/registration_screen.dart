@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_weather/models/EmailField.dart';
-import 'package:weather_weather/models/PasswordField.dart';
-import 'package:weather_weather/models/LogRegButton.dart';
-import 'package:weather_weather/models/GoogleLogRegButton.dart';
+import 'package:weather_weather/widgets/EmailField.dart';
+import 'package:weather_weather/widgets/PasswordField.dart';
+import 'package:weather_weather/widgets/LogRegButton.dart';
+import 'package:weather_weather/widgets/GoogleLogRegButton.dart';
 import 'package:weather_weather/screens/login_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
