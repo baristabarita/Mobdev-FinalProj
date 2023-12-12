@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:weather_weather/widgets/EmailField.dart';
 import 'package:weather_weather/widgets/PasswordField.dart';
 import 'package:weather_weather/widgets/LogRegButton.dart';
-import 'package:weather_weather/widgets/GoogleLogRegButton.dart';
 import 'package:weather_weather/screens/login_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -75,31 +74,7 @@ class _RegisterState extends State<RegistrationScreen>{
                 )
               ],
             ),
-            SizedBox(height: 16.0),
-            Row(
-              children: [
-                Expanded(
-                  child: Divider(color: Colors.grey),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text(
-                    'Or',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
-                Expanded(
-                  child: Divider(color: Colors.grey),
-                ),
-              ],
-            ),
-            SizedBox(height: 16.0),
-            GoogleLogRegButton(
-              onPressed: () {
-                // Handle Google sign-up button press
-              },
-            ),
+            
             SizedBox(height: 16.0),
             Text(
               'By signing up, you are agreeing our Terms and Privacy Policy.',

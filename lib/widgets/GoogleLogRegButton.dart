@@ -27,7 +27,7 @@ class GoogleLogRegButton extends StatelessWidget {
             width: 15.0,
           ),
           SizedBox(width: 8.0),
-          Text('Sign Up with Google'),
+          Text('Sign In with Google'),
         ],
       ),
     );

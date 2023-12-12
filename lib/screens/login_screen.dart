@@ -13,11 +13,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 class LoginScreen extends StatefulWidget {
   static String routeName = "/login";
   const LoginScreen({Key? key}) : super(key: key);
-  
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
-class _LoginScreenState extends State<LoginScreen>{
+
+class _LoginScreenState extends State<LoginScreen> {
   StorageService storageService = StorageService();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -69,9 +70,7 @@ class _LoginScreenState extends State<LoginScreen>{
               text: 'Login',
               onPressed: () {
                 // Handle login button press
-                loginUser(
-                    context,
-                    emailController.value.text,
+                loginUser(context, emailController.value.text,
                     passwordController.value.text);
               },
             ),
@@ -145,6 +144,9 @@ class _LoginScreenState extends State<LoginScreen>{
       UserCredential credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
+      // Link Google provider if a Google user with the same email exists
+      await _linkGoogleProvider(credential);
+
       var item = StorageItem("uid", credential.user?.uid ?? "");
 
       await storageService.saveData(item);
@@ -159,21 +161,84 @@ class _LoginScreenState extends State<LoginScreen>{
   }
 
   loginWithGoogle() async {
-    try{
+    try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
 
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
       );
-      
-      UserCredential? userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+
+      UserCredential? userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+
+      // Link email/password provider if an email/password user with the same email exists
+      await _linkEmailPasswordProvider(userCredential);
 
       Navigator.pushReplacementNamed(context, DashboardScreen.routeName);
       print("Login with Google Successful!");
-    }catch(e){
+    } catch (e) {
       print(e);
     }
   }
+
+// Function to link Google provider if a Google user with the same email exists
+_linkGoogleProvider(UserCredential emailPasswordCredential) async {
+  try {
+    if (emailPasswordCredential.user != null) {
+      // Check if a Google user with the same email exists
+      List<String> signInMethods = await FirebaseAuth.instance
+          .fetchSignInMethodsForEmail(emailPasswordCredential.user!.email ?? '');
+
+      // Check if the list contains 'google.com', which indicates a Google sign-in
+      if (signInMethods.contains('google.com')) {
+        // Get the Google sign-in credentials
+        final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+        final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+        // Create a GoogleAuthCredential with the id token and access token
+        final googleCredential = GoogleAuthProvider.credential(
+          idToken: googleAuth?.idToken,
+          accessToken: googleAuth?.accessToken,
+        );
+
+        // Link Google provider
+        await emailPasswordCredential.user!.linkWithCredential(googleCredential);
+        print("Linked Google Provider!");
+      }
+    }
+  } catch (e) {
+    print("Error linking Google provider: $e");
+  }
+}
+
+// Function to link email/password provider if an email/password user with the same email exists
+_linkEmailPasswordProvider(UserCredential googleCredential) async {
+  try {
+    if (googleCredential.user != null) {
+      // Check if an email/password user with the same email exists
+      List<String> signInMethods = await FirebaseAuth.instance
+          .fetchSignInMethodsForEmail(googleCredential.user!.email ?? '');
+
+      // Check if the list contains 'password', which indicates an email/password sign-in
+      if (signInMethods.contains('password')) {
+        String password = '...'; 
+
+        // Create an EmailAuthCredential with the email and password
+        final emailPasswordCredential = EmailAuthProvider.credential(
+          email: googleCredential.user!.email ?? '',
+          password: password,
+        );
+
+        // Link email/password provider
+        await googleCredential.user!.linkWithCredential(emailPasswordCredential);
+        print("Linked Email/Password Provider!");
+      }
+    }
+  } catch (e) {
+    print("Error linking Email/Password provider: $e");
+  }
+}
 }
