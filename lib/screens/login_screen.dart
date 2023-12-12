@@ -8,6 +8,7 @@ import 'package:weather_weather/models/PasswordField.dart';
 import 'package:weather_weather/models/LogRegButton.dart';
 import 'package:weather_weather/models/GoogleLogRegButton.dart';
 import 'package:weather_weather/services/StorageServices.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginScreen extends StatefulWidget {
   static String routeName = "/login";
@@ -124,6 +125,7 @@ class _LoginScreenState extends State<LoginScreen>{
             GoogleLogRegButton(
               onPressed: () {
                 // Handle Google sign-in button press
+                loginWithGoogle();
               },
             ),
             SizedBox(height: 16.0),
@@ -152,6 +154,25 @@ class _LoginScreenState extends State<LoginScreen>{
     } on FirebaseAuthException catch (e) {
       print(e.message);
     } catch (e) {
+      print(e);
+    }
+  }
+
+  loginWithGoogle() async {
+    try{
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      
+      UserCredential? userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+
+      Navigator.pushReplacementNamed(context, DashboardScreen.routeName);
+      print("Login with Google Successful!");
+    }catch(e){
       print(e);
     }
   }
