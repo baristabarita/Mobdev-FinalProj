@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_weather/screens/profile_screen.dart'; // Add this import
+import 'package:weather_weather/screens/profile_screen.dart';
+import 'package:weather_weather/widgets/BottomNavbar.dart';
 
 class DashboardScreen extends StatefulWidget {
   static String routeName = "/dashboard";
@@ -10,19 +11,13 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardState extends State<DashboardScreen> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dashboard'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.person),
-            onPressed: () {
-              Navigator.pushNamed(context, ProfileScreen.routeName);
-            },
-          ),
-        ],
       ),
       body: Center(
         child: Text(
@@ -32,6 +27,18 @@ class _DashboardState extends State<DashboardScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavbar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+          // Handle navigation or any other logic based on the selected index
+          if (_currentIndex == 1) {
+            Navigator.pushNamed(context, ProfileScreen.routeName);
+          }
+        },
       ),
     );
   }
