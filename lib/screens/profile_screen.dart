@@ -24,7 +24,7 @@ class ProfileScreen extends StatelessWidget {
             alignment: Alignment.center,
             padding: EdgeInsets.all(16.0),
             child: Text(
-              'Welcome to your profile screen',
+              'Welcome to your profile screen!',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
