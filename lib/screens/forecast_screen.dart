@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:weather_weather/screens/forecast_screen.dart';
+import 'package:weather_weather/screens/dashboard_screen.dart';
 import 'package:weather_weather/screens/profile_screen.dart';
 import 'package:weather_weather/widgets/BottomNavbar.dart';
 
-class DashboardScreen extends StatefulWidget {
-  static String routeName = "/dashboard";
-  const DashboardScreen({Key? key}) : super(key: key);
+class ForecastScreen extends StatefulWidget {
+  static String routeName = "/forecast";
+  const ForecastScreen({Key? key}) : super(key: key);
 
   @override
-  State<DashboardScreen> createState() => _DashboardState();
+  State<ForecastScreen> createState() => _ForecastState();
 }
 
-class _DashboardState extends State<DashboardScreen> {
-  int _currentIndex = 0;
+class _ForecastState extends State<ForecastScreen> {
+  int _currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Text(
-          'This is the Dashboard',
+          'This is the Forecast Screen',
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
@@ -33,8 +33,8 @@ class _DashboardState extends State<DashboardScreen> {
             _currentIndex = index;
           });
           // Handle navigation or any other logic based on the selected index
-          if (_currentIndex == 1) {
-            Navigator.pushNamed(context, ForecastScreen.routeName);
+           if (_currentIndex == 0) {
+            Navigator.pushNamed(context, DashboardScreen.routeName);
           } else if(_currentIndex == 2){
             Navigator.pushNamed(context, ProfileScreen.routeName);
           }
