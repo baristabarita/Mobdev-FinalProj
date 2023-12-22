@@ -9,11 +9,12 @@ class EmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFF288CC5), // Dark blue background color
-        borderRadius: BorderRadius.circular(10.0), // Match the circular radius
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.transparent, // Transparent background
       ),
       child: TextField(
         controller: controller,
+        style: TextStyle(color: Colors.white), // White text color
         decoration: InputDecoration(
           labelText: 'Email Address',
           labelStyle: TextStyle(color: Colors.white),
@@ -22,11 +23,11 @@ class EmailField extends StatelessWidget {
             color: Colors.white,
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFF104084)),
+            borderSide: BorderSide(color: Colors.white), // White border on focus
             borderRadius: BorderRadius.circular(10.0),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFF104084)),
+            borderSide: BorderSide(color: Colors.white), // White border when not focused
             borderRadius: BorderRadius.circular(10.0),
           ),
           hintStyle: TextStyle(color: Colors.grey),

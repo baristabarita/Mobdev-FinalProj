@@ -5,7 +5,7 @@ import 'package:weather_weather/models/StorageItem.dart';
 import 'package:weather_weather/screens/login_screen.dart';
 import 'package:weather_weather/services/StorageServices.dart';
 
-class LogoutScreen extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   static String routeName = "/logout";
   final StorageService storageService = StorageService(); // Create an instance of StorageService
 

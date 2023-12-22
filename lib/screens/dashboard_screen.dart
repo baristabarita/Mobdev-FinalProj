@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_weather/screens/logout_screen.dart'; // Add this import
+import 'package:weather_weather/screens/profile_screen.dart'; // Add this import
 
 class DashboardScreen extends StatefulWidget {
   static String routeName = "/dashboard";
@@ -17,9 +17,9 @@ class _DashboardState extends State<DashboardScreen> {
         title: Text('Dashboard'),
         actions: [
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: Icon(Icons.person),
             onPressed: () {
-              Navigator.pushNamed(context, LogoutScreen.routeName);
+              Navigator.pushNamed(context, ProfileScreen.routeName);
             },
           ),
         ],

@@ -70,19 +70,6 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 16.0),
               PasswordField(controller: passwordController),
               SizedBox(height: 16.0),
-              Row(
-                children: [
-                  Checkbox(
-                    value: false,
-                    onChanged: (value) {
-                      // Handle checkbox change
-                    },
-                  ),
-                  Text('Remember password',
-                      style: TextStyle(color: Colors.white)),
-                ],
-              ),
-              SizedBox(height: 16.0),
               LogRegButton(
                 text: 'Login',
                 onPressed: () {
@@ -112,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       );
                     },
                     style: TextButton.styleFrom(
-                      foregroundColor: Colors.white,
+                      foregroundColor: const Color(0xFFfec601),
                     ),
                     child: Text('Create new Account'),
                   ),
