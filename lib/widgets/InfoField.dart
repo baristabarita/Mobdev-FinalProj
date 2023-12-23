@@ -9,7 +9,7 @@ class InfoField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0),
+      margin: EdgeInsets.symmetric(vertical: 5.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,6 +20,7 @@ class InfoField extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
+                color: Colors.grey,
               ),
             ),
           ),
@@ -29,7 +30,7 @@ class InfoField extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10.0),
-              border: Border.all(color: Colors.black),
+              border: Border.all(color: Colors.grey),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.1),

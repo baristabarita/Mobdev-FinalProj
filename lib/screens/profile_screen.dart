@@ -26,18 +26,41 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
           ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(80.0),
+              child: Text(
+                'User Profile',
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  shadows: [
+                    Shadow(
+                      color: Colors.grey, // Set the shadow color
+                      offset: Offset(2.0, 2.0), // Set the shadow offset
+                      blurRadius: 4.0, // Set the blur radius
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: 50.0),
                 Container(
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(16.0),
                   child: Text(
                     'Welcome to your profile screen!',
                     style: TextStyle(
-                      fontSize: 18.0,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.bold,
+                      color: Colors.grey,
                     ),
                   ),
                 ),
@@ -64,10 +87,9 @@ class ProfileScreen extends StatelessWidget {
                               radius: 50.0,
                               backgroundImage: user.photoURL != null
                                   ? NetworkImage(user.photoURL!)
-                                  : AssetImage('../../assets/default_pfp.jpg')
+                                  : AssetImage('assets/default_pfp.jpg')
                                       as ImageProvider<Object>?,
                             ),
-                            SizedBox(height: 20.0),
                             // Display Name
                             InfoField(
                                 labelText: 'Full Name', content: displayName),
@@ -80,6 +102,15 @@ class ProfileScreen extends StatelessWidget {
                                 // Handle logout button press
                                 logoutUser(context);
                               },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                foregroundColor: Colors.blue,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      20.0), // Set the border radius
+                                ),
+                                minimumSize: Size(150.0, 40),
+                              ),
                               child: Text('Log Out'),
                             ),
                           ],
