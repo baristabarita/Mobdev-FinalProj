@@ -35,7 +35,7 @@ class _DashboardState extends State<DashboardScreen> {
           // Handle navigation or any other logic based on the selected index
           if (_currentIndex == 1) {
             Navigator.pushNamed(context, ForecastScreen.routeName);
-          } else if(_currentIndex == 2){
+          } else if (_currentIndex == 2) {
             Navigator.pushNamed(context, ProfileScreen.routeName);
           }
         },
