@@ -1,0 +1,28 @@
+{
+  "" : {
+    "diagnostics" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/flutter_secure_storage-master.dia",
+    "emit-module-dependencies" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/flutter_secure_storage-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/flutter_secure_storage-master-emit-module.dia",
+    "swift-dependencies" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/flutter_secure_storage-master.swiftdeps"
+  },
+  "/Users/jossecleo/.pub-cache/hosted/pub.dev/flutter_secure_storage-9.0.0/ios/Classes/FlutterSecureStorage.swift" : {
+    "const-values" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/FlutterSecureStorage.swiftconstvalues",
+    "dependencies" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/FlutterSecureStorage.d",
+    "diagnostics" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/FlutterSecureStorage.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/FlutterSecureStorage.o",
+    "llvm-bc" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/FlutterSecureStorage.bc",
+    "object" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/FlutterSecureStorage.o",
+    "swift-dependencies" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/FlutterSecureStorage.swiftdeps",
+    "swiftmodule" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/FlutterSecureStorage~partial.swiftmodule"
+  },
+  "/Users/jossecleo/.pub-cache/hosted/pub.dev/flutter_secure_storage-9.0.0/ios/Classes/SwiftFlutterSecureStoragePlugin.swift" : {
+    "const-values" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/SwiftFlutterSecureStoragePlugin.swiftconstvalues",
+    "dependencies" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/SwiftFlutterSecureStoragePlugin.d",
+    "diagnostics" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/SwiftFlutterSecureStoragePlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/SwiftFlutterSecureStoragePlugin.o",
+    "llvm-bc" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/SwiftFlutterSecureStoragePlugin.bc",
+    "object" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/SwiftFlutterSecureStoragePlugin.o",
+    "swift-dependencies" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/SwiftFlutterSecureStoragePlugin.swiftdeps",
+    "swiftmodule" : "/Users/jossecleo/Desktop/Weather-Weather/ios/build/Pods.build/Debug-iphonesimulator/flutter_secure_storage.build/Objects-normal/x86_64/SwiftFlutterSecureStoragePlugin~partial.swiftmodule"
+  }
+}
