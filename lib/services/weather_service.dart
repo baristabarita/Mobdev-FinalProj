@@ -6,7 +6,7 @@ class WeatherService {
   final String? city;
 
   String baseUrl = 'https://api.openweathermap.org/data/2.5';
-  String apiKey = 'appid=YOUR-OPENWEATHER-APPID';
+  String apiKey = 'appid=6ab4adb855c142fbb59173526218f402';
 
   WeatherService({@required this.city});
 

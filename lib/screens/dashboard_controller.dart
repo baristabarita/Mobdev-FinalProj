@@ -9,7 +9,7 @@ class DashboardController extends GetxController {
 
   CurrentWeatherData currentWeatherData = CurrentWeatherData();
 
-  DashboardController({@required this.city});
+  DashboardController({this.city});
 
   @override
   void onInit() {
