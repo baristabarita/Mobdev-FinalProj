@@ -167,20 +167,20 @@ class _ForecastState extends State<ForecastScreen> {
                             children: [
                               Row(children: [
                                 Image.asset(
-                                  'assets/13.png',
+                                  'assets/8.png',
                                   scale: 9,
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                      'Temp Max',
+                                      'Cloudiness',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w300),
                                     ),
                                     Text(
-                                      "${state.weather.tempMax!.celsius!.round()} °C",
+                                      "${state.weather.cloudiness}",
                                       style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700),
@@ -190,20 +190,72 @@ class _ForecastState extends State<ForecastScreen> {
                               ]),
                               Row(children: [
                                 Image.asset(
-                                  'assets/14.png',
+                                  'assets/15.png',
                                   scale: 9,
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                      'Temp Min',
+                                      'Humidity',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w300),
                                     ),
                                     Text(
-                                      "${state.weather.tempMin!.celsius!.round()} °C",
+                                      "${state.weather.humidity}",
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 75)
+                              ])
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(children: [
+                                Image.asset(
+                                  'assets/17.png',
+                                  scale: 9,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Wind Speed',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w300),
+                                    ),
+                                    Text(
+                                      "${state.weather.windSpeed}",
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ],
+                                )
+                              ]),
+                              Row(children: [
+                                Image.asset(
+                                  'assets/16.png',
+                                  scale: 9,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Pressure',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w300),
+                                    ),
+                                    Text(
+                                      "${state.weather.pressure}",
                                       style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700),
