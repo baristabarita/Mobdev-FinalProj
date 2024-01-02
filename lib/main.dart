@@ -57,12 +57,23 @@ Future<void> mainRouting() async {
   StorageService storageService = StorageService();
   var item = await storageService.readData("uid");
 
-  runApp(MaterialApp(
-    // Adjust the initialRoute based on the presence of "uid"
-    initialRoute: item != null ? DashboardScreen.routeName : LoginScreen.routeName,
-    routes: routes,
-  ));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<WeatherBlocBloc>(
+          create: (context) => WeatherBlocBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        // Adjust the initialRoute based on the presence of "uid"
+        initialRoute:
+            item != null ? DashboardScreen.routeName : LoginScreen.routeName,
+        routes: routes,
+      ),
+    ),
+  );
 }
+
 
 
 Future<Position> _determinePosition() async {
