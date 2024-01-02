@@ -89,7 +89,8 @@ class _RegisterState extends State<RegistrationScreen> {
                       );
                     },
                     style: TextButton.styleFrom(
-                      foregroundColor: const Color(0xFFfec601), // Sets the text color
+                      foregroundColor:
+                          const Color(0xFFfec601), // Sets the text color
                     ),
                     child: Text('Login here'),
                   ),
