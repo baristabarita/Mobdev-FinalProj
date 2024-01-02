@@ -206,7 +206,7 @@ class _DashboardState extends State<DashboardScreen> {
                           const Padding(
                             padding: EdgeInsets.symmetric(vertical: 5.0),
                             child: Divider(
-                              color: Colors.grey,
+                              color: Colors.white,
                             ),
                           ),
                           Row(
