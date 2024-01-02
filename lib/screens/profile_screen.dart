@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.orange,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -51,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.orange,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -60,7 +60,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Container(
                   height: 300,
                   width: 600,
-                  decoration: const BoxDecoration(color: Colors.white),
+                  decoration: const BoxDecoration(color: Color(0xFF47BFDF)),
                 ),
               ),
               BackdropFilter(
