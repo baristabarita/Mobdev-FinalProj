@@ -42,7 +42,9 @@ class _DashboardState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider<WeatherBlocBloc>(
+    create: (context) => WeatherBlocBloc(),
+      child: Scaffold(
       backgroundColor: Color(0xFF011627),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -83,19 +85,21 @@ class _DashboardState extends State<DashboardScreen> {
                   decoration: const BoxDecoration(color: Colors.white),
                 ),
               ),
+
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
                 child: Container(
                   decoration: const BoxDecoration(color: Colors.transparent),
                 ),
               ),
+
               BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
-                builder: (context, state) {
-                  if (state is WeatherBlocSuccess) {
-                    return SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      child: Column(
+                  builder: (context, state) {
+                    if (state is WeatherBlocSuccess) {
+                      return SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -279,12 +283,13 @@ class _DashboardState extends State<DashboardScreen> {
             _currentIndex = index;
           });
           // Handle navigation or any other logic based on the selected index
-          if (_currentIndex == 0) {
+          if (_currentIndex == 1) {
             Navigator.pushNamed(context, ForecastScreen.routeName);
           } else if (_currentIndex == 2) {
             Navigator.pushNamed(context, ProfileScreen.routeName);
           }
         },
+      ),
       ),
     );
   }
