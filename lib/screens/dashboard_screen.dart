@@ -280,7 +280,7 @@ class _DashboardState extends State<DashboardScreen> {
           });
           // Handle navigation or any other logic based on the selected index
           if (_currentIndex == 0) {
-            Navigator.pushNamed(context, DashboardScreen.routeName);
+            Navigator.pushNamed(context, ForecastScreen.routeName);
           } else if (_currentIndex == 2) {
             Navigator.pushNamed(context, ProfileScreen.routeName);
           }
