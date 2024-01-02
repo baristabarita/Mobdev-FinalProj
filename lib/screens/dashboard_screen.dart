@@ -43,7 +43,7 @@ class _DashboardState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF011627),
+      backgroundColor: Color(0xFF4A91FF),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -63,7 +63,7 @@ class _DashboardState extends State<DashboardScreen> {
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.orange),
+                      shape: BoxShape.circle, color: Colors.white),
                 ),
               ),
               Align(
@@ -72,7 +72,7 @@ class _DashboardState extends State<DashboardScreen> {
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.orange),
+                      shape: BoxShape.circle, color: Colors.white),
                 ),
               ),
               Align(
@@ -80,7 +80,7 @@ class _DashboardState extends State<DashboardScreen> {
                 child: Container(
                   height: 300,
                   width: 600,
-                  decoration: const BoxDecoration(color: Colors.white),
+                  decoration: const BoxDecoration(color: Color(0xFF47BFDF)),
                 ),
               ),
               BackdropFilter(
@@ -90,14 +90,14 @@ class _DashboardState extends State<DashboardScreen> {
                 ),
               ),
               BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
-  builder: (context, state) {
-    if (state is WeatherBlocSuccess) {
-      return SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+                builder: (context, state) {
+                  if (state is WeatherBlocSuccess) {
+                    return SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Text(
                             '📍 ${state.weather.areaName}',
                             style: const TextStyle(
@@ -266,8 +266,8 @@ class _DashboardState extends State<DashboardScreen> {
                   } else {
                     return Container();
                   }
-  },
-)
+                },
+              )
             ],
           ),
         ),
