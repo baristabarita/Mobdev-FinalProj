@@ -85,6 +85,24 @@ dependencies: \
   /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/flutter_secure_storage/flutter_secure_storage.framework/Modules/module.modulemap \
   /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/flutter_secure_storage/flutter_secure_storage.framework/Headers/flutter_secure_storage-umbrella.h \
   /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/flutter_secure_storage/flutter_secure_storage.framework/Headers/flutter_secure_storage-Swift.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/GeolocatorPlugin.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Modules/module.modulemap \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/geolocator-umbrella.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/ErrorCodes.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/GeolocationHandler.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/LocationAccuracyHandler.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/LocationServiceStreamHandler.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/PermissionHandler.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/PositionStreamHandler.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/ActivityTypeMapper.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/AuthorizationStatusMapper.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/LocationAccuracyMapper.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/LocationDistanceMapper.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/LocationMapper.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/PermissionUtils.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/ServiceStatus.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/GeolocationHandler_Test.h \
+  /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/geolocator_apple/geolocator_apple.framework/Headers/GeolocatorPlugin_Test.h \
   /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/google_sign_in_ios/google_sign_in_ios.framework/Headers/FLTGoogleSignInPlugin.h \
   /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/google_sign_in_ios/google_sign_in_ios.framework/Modules/module.modulemap \
   /Users/jossecleo/Desktop/Weather-Weather/build/ios/Debug-iphonesimulator/GoogleSignIn/GoogleSignIn.framework/Modules/module.modulemap \
