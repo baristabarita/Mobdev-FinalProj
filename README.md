@@ -36,3 +36,8 @@ Make sure you have Flutter installed and set up. Then run:
 
 6. **Run the app**:
 Connect your device or open your emulator, then execute:
+
+**Dev Team**
+Joss Ecleo
+Shane Barita
+Sabrinah Yap
