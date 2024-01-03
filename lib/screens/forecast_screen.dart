@@ -70,7 +70,7 @@ class _ForecastState extends State<ForecastScreen> {
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.white),
+                      shape: BoxShape.circle, color: Color(0xFF47BFDF)),
                 ),
               ),
               Align(
@@ -79,7 +79,7 @@ class _ForecastState extends State<ForecastScreen> {
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.white),
+                      shape: BoxShape.circle, color: Color(0xFF47BFDF)),
                 ),
               ),
               Align(
