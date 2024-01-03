@@ -43,7 +43,7 @@ class ProfileScreen extends StatelessWidget {
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white,
+                    color: Color(0xFF47BFDF),
                   ),
                 ),
               ),
@@ -53,9 +53,7 @@ class ProfileScreen extends StatelessWidget {
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
+                      shape: BoxShape.circle, color: Color(0xFF47BFDF)),
                 ),
               ),
               Align(
