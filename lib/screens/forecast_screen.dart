@@ -103,14 +103,6 @@ class _ForecastState extends State<ForecastScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            'Forecast Screen',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                            ),
-                          ),
                           SizedBox(height: 1),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
