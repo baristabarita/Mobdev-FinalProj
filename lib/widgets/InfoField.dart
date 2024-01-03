@@ -20,7 +20,7 @@ class InfoField extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey,
+                color: Colors.white,
               ),
             ),
           ),
@@ -30,7 +30,7 @@ class InfoField extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10.0),
-              border: Border.all(color: Colors.grey),
+              border: Border.all(color: Colors.white),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.1),

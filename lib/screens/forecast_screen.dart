@@ -8,6 +8,9 @@ import 'package:weather_weather/screens/dashboard_screen.dart';
 import 'package:weather_weather/screens/profile_screen.dart';
 import 'package:weather_weather/widgets/BottomNavbar.dart';
 import 'package:intl/intl.dart';
+import 'package:weather_weather/widgets/ForecastChart.dart'; // Import your ForecastChartWidget
+import 'package:weather_weather/services/ForecastServices.dart'; // Import your ForecastService
+import 'package:weather_weather/models/forecast.dart';
 
 class ForecastScreen extends StatefulWidget {
   static String routeName = "/forecast";
@@ -19,6 +22,7 @@ class ForecastScreen extends StatefulWidget {
 
 class _ForecastState extends State<ForecastScreen> {
   int _currentIndex = 1;
+  final ForecastService forecastService = ForecastService();
   Widget getWeatherIcon(int code) {
     switch (code) {
       case >= 200 && < 300:
@@ -92,9 +96,7 @@ class _ForecastState extends State<ForecastScreen> {
               BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
                 builder: (context, state) {
                   if (state is WeatherBlocSuccess) {
-                    return SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
+                    return SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -104,14 +106,7 @@ class _ForecastState extends State<ForecastScreen> {
                                 color: Colors.white,
                                 fontWeight: FontWeight.w300),
                           ),
-                          const Text(
-                            'Good Morning',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 1),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -129,7 +124,7 @@ class _ForecastState extends State<ForecastScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        '${state.weather.areaName}',
+                                        'Check out the forecast!',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w300),
@@ -141,7 +136,7 @@ class _ForecastState extends State<ForecastScreen> {
                                             color: Colors.white,
                                             fontWeight: FontWeight.w700),
                                       ),
-                                      SizedBox(height: 10),
+                                      SizedBox(height: 15),
                                       Text(
                                         DateFormat('EEEEE')
                                             .add_jm()
@@ -157,7 +152,7 @@ class _ForecastState extends State<ForecastScreen> {
                             ],
                           ),
                           const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5.0),
+                            padding: EdgeInsets.symmetric(vertical: 3.0),
                             child: Divider(
                               color: Colors.white,
                             ),
@@ -210,7 +205,7 @@ class _ForecastState extends State<ForecastScreen> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 75)
+                                SizedBox(height: 40)
                               ])
                             ],
                           ),
@@ -264,6 +259,47 @@ class _ForecastState extends State<ForecastScreen> {
                                 )
                               ])
                             ],
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 3.0),
+                            child: Divider(
+                              color: Colors.white,
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center, // Center the content
+                            child: Text(
+                              "5 Day Forecast by Precipitation Level",
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          FutureBuilder<List<Forecast>>(
+                            future: forecastService.fetchFiveDayForecast(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.done) {
+                                if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else if (snapshot.hasData) {
+                                  return Container(
+                                    // Solution 1: Wrap with Container
+                                    height: 300, // Specify the height
+                                    width: double
+                                        .infinity, // Take as much width as possible
+                                    child: ForecastChartWidget(
+                                        forecastData: snapshot.data!),
+                                  );
+                                } else {
+                                  return Text('No forecast data available');
+                                }
+                              } else {
+                                return CircularProgressIndicator();
+                              }
+                            },
                           ),
                         ],
                       ),
