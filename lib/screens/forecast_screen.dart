@@ -52,6 +52,9 @@ class _ForecastState extends State<ForecastScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.white, // Change this to your desired color
+        ),
         systemOverlayStyle:
             const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
       ),
@@ -98,13 +101,15 @@ class _ForecastState extends State<ForecastScreen> {
                   if (state is WeatherBlocSuccess) {
                     return SingleChildScrollView(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            '📍 ${state.weather.areaName}',
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w300),
+                            'Forecast Screen',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(height: 1),
                           Row(
@@ -124,10 +129,10 @@ class _ForecastState extends State<ForecastScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Check out the forecast!',
+                                        '📍 ${state.weather.areaName}',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontWeight: FontWeight.w300),
+                                            fontWeight: FontWeight.w500),
                                       ),
                                       SizedBox(height: 10),
                                       Text(
@@ -272,7 +277,7 @@ class _ForecastState extends State<ForecastScreen> {
                               "5 Day Forecast by Precipitation Level",
                               style: const TextStyle(
                                 color: Colors.white,
-                                fontWeight: FontWeight.w300,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),

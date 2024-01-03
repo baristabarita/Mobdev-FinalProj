@@ -24,6 +24,9 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.white, // Change this to your desired color
+        ),
         systemOverlayStyle:
             const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
       ),
@@ -77,26 +80,13 @@ class ProfileScreen extends StatelessWidget {
                     Text(
                       'User Profile',
                       style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 5.0),
-                    Container(
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.all(1.0),
-                      child: Text(
-                        'Welcome to your profile screen!',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
                     SizedBox(
-                      height: 100,
+                      height: 75,
                     ),
                     FutureBuilder(
                       future: getUserDetails(),
@@ -118,11 +108,14 @@ class ProfileScreen extends StatelessWidget {
                             return Column(
                               children: [
                                 CircleAvatar(
-                                  radius: 75.0,
+                                  radius: 80,
                                   backgroundImage: user.photoURL != null
                                       ? NetworkImage(user.photoURL!)
                                       : AssetImage('assets/default_pfp.jpg')
                                           as ImageProvider<Object>?,
+                                ),
+                                SizedBox(
+                                  height: 20,
                                 ),
                                 InfoField(
                                     labelText: 'Full Name',

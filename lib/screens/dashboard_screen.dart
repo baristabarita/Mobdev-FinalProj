@@ -48,6 +48,9 @@ class _DashboardState extends State<DashboardScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.white, // Change this to your desired color
+        ),
         systemOverlayStyle:
             const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
       ),
@@ -113,14 +116,21 @@ class _DashboardState extends State<DashboardScreen> {
                           ),
                           getWeatherIcon(state.weather.weatherConditionCode!),
                           Center(
-                            child: Text(
-                              '${state.weather.temperature!.celsius!.round()}°C',
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 50,
-                                  fontWeight: FontWeight.w600),
+                              child: Text(
+                            '${state.weather.temperature!.celsius!.round()}°C',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 50,
+                              fontWeight: FontWeight.w600,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 3.0,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
                             ),
-                          ),
+                          )),
                           Center(
                             child: Text(
                               state.weather.weatherMain!.toUpperCase(),
